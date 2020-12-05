@@ -2,9 +2,10 @@ grammar g;
 
 start: (statement EOL*)*;
 
-statement:  var=VARIABLE '=' exp=expr            #assignmentStatement
-         |  exp=expr                             #exprStatement
-         | 'print(' exp=expr ')'                 #printExpr
+statement:  var=VARIABLE '=' exp=expr           #assignmentStatement
+         |  exp=expr                            #exprStatement
+         | 'print(' exp=expr ')'                #printExpr
+         | COMMENT                              #commentExpr
          ;
 
 
@@ -21,6 +22,7 @@ expr: atom=INT                                  #atomIntExpr
 INT: [0-9]+;
 FLOAT: ([0-9]*[.])?[0-9]+;
 STRING: '"' (~["\r\n] | '""')* '"' | '\'' (~['\r\n] | '""')* '\'';
+COMMENT: '#'(~[\r\n])*;
 VARIABLE: [a-zA-Z][a-zA-Z0-9]*;
 WS: [ \t]+ -> skip;
 EOL: '\n' | '\r\n' | '\r';

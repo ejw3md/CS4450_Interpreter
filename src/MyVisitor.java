@@ -5,11 +5,19 @@ public class MyVisitor extends gBaseVisitor<Object> {
 
     @Override public Object visitStart(gParser.StartContext ctx) { return visitChildren(ctx); }
 
-    @Override public Object visitAssignmentExpr(gParser.AssignmentExprContext ctx) {
+    @Override public Object visitAssignmentStatement(gParser.AssignmentStatementContext ctx) {
         Object exp = visit(ctx.exp);
         String name = ctx.var.getText();
 
         variables.put(name, exp);
+        return null;
+    }
+
+    @Override public Object visitExprStatement(gParser.ExprStatementContext ctx) {
+        return visit(ctx.exp);
+    }
+
+    @Override public Object visitCommentExpr(gParser.CommentExprContext ctx) {
         return null;
     }
 

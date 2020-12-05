@@ -17,6 +17,54 @@ public interface gListener extends ParseTreeListener {
 	 */
 	void exitStart(gParser.StartContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code assignmentStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignmentStatement(gParser.AssignmentStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code assignmentStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignmentStatement(gParser.AssignmentStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code exprStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterExprStatement(gParser.ExprStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code exprStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitExprStatement(gParser.ExprStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code printExpr}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintExpr(gParser.PrintExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code printExpr}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintExpr(gParser.PrintExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code commentExpr}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommentExpr(gParser.CommentExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code commentExpr}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommentExpr(gParser.CommentExprContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code atomStringExpr}
 	 * labeled alternative in {@link gParser#expr}.
 	 * @param ctx the parse tree
@@ -28,18 +76,6 @@ public interface gListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAtomStringExpr(gParser.AtomStringExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code assignmentExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterAssignmentExpr(gParser.AssignmentExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code assignmentExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitAssignmentExpr(gParser.AssignmentExprContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code unaryOpExpr}
 	 * labeled alternative in {@link gParser#expr}.
@@ -112,16 +148,4 @@ public interface gListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAtomVarExpr(gParser.AtomVarExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code printExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrintExpr(gParser.PrintExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code printExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrintExpr(gParser.PrintExprContext ctx);
 }

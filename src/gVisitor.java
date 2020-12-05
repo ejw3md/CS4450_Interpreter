@@ -16,19 +16,40 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStart(gParser.StartContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code assignmentStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignmentStatement(gParser.AssignmentStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code exprStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExprStatement(gParser.ExprStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code printExpr}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintExpr(gParser.PrintExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code commentExpr}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCommentExpr(gParser.CommentExprContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code atomStringExpr}
 	 * labeled alternative in {@link gParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAtomStringExpr(gParser.AtomStringExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code assignmentExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAssignmentExpr(gParser.AssignmentExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code unaryOpExpr}
 	 * labeled alternative in {@link gParser#expr}.
@@ -71,11 +92,4 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAtomVarExpr(gParser.AtomVarExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code printExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrintExpr(gParser.PrintExprContext ctx);
 }
