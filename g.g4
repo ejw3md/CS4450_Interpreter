@@ -1,6 +1,12 @@
 grammar g;
 
-start: (expr EOL*)*;
+start: (statement EOL*)*;
+
+statement:  var=VARIABLE '=' exp=expr            #assignmentStatement
+         |  exp=expr                             #exprStatement
+         | 'print(' exp=expr ')'                 #printExpr
+         ;
+
 
 expr: atom=INT                                  #atomIntExpr
     | atom=FLOAT                                #atomFloatExpr
@@ -9,9 +15,7 @@ expr: atom=INT                                  #atomIntExpr
     | '(' exp=expr ')'                          #parnExpr
     | left=expr op=('*'|'/') right=expr         #opExpr //TODO
     | left=expr op=('+'|'-') right=expr         #opExpr //TODO
-    | var=VARIABLE '=' exp=expr                 #assignmentExpr
     | op=('+'|'-') exp=expr                     #unaryOpExpr //TODO
-    | 'print(' exp=expr ')'                     #printExpr
     ;
 
 INT: [0-9]+;
