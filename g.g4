@@ -26,8 +26,8 @@ expr: atom=INT                                  #atomIntExpr
     ;
 
 CNDL: '=='|'!='|'<'|'<='|'>'|'>='; // conditional operators
-INT: [0-9]+;
-FLOAT: ([0-9]*[.])?[0-9]+;
+INT: '-'?[0-9]+;
+FLOAT: '-'?([0-9]*[.])?[0-9]+;
 STRING: '"' (~["\r\n] | '""')* '"' | '\'' (~['\r\n] | '""')* '\'';
 COMMENT: '#'(~[\r\n])*;
 VARIABLE: [a-zA-Z][a-zA-Z0-9]*;

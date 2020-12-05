@@ -16,7 +16,8 @@ print(b)
 print(c)
 
 i = 0
-print(3 == 3)
+print(i == 0)
+print(-3.5 < 1.7)
 print(3 > 3.0001)
 while i < 6:
     print(i)
