@@ -1,1 +1,7 @@
-hello
+a = 5
+b = 12.01
+c = "lasdjfljsdkf"
+
+print(a)
+print(b)
+print(c)
