@@ -92,14 +92,14 @@ public class MyVisitor extends gBaseVisitor<Object> {
         String cond = ctx.cndl.getText();
 
         if(cond.equals("==")){
-            if(left == right){
+            if(left.doubleValue() == right.doubleValue()){
                 return Boolean.TRUE;
             }
             else
                 return Boolean.FALSE;
         }
         if(cond.equals("!=")) {
-            if(left != right){
+            if(left.doubleValue() != right.doubleValue()){
                 return Boolean.TRUE;
             }
             else
