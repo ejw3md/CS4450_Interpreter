@@ -5,6 +5,12 @@ c = "lasdjfljsdkf"
 #do comments work?
 # hopefully
 
+for i in range(1, 10):
+    print("HELLO")
+    for j in range(10, 20):
+        print(j)
+
+
 print(a)
 print(b)
 print(c)

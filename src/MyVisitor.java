@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 public class MyVisitor extends gBaseVisitor<Object> {
     public static HashMap<String ,Object> variables = new HashMap<>();
+    public static boolean broken = false;
 
     @Override public Object visitStart(gParser.StartContext ctx) { return visitChildren(ctx); }
 
@@ -17,7 +18,34 @@ public class MyVisitor extends gBaseVisitor<Object> {
         return visit(ctx.exp);
     }
 
-    @Override public Object visitCommentExpr(gParser.CommentExprContext ctx) {
+    @Override public Object visitCommentStatement(gParser.CommentStatementContext ctx) {
+        return null;
+    }
+
+    //TODO: TEST function
+    @Override public Object visitWhileStatement(gParser.WhileStatementContext ctx) {
+        while((Boolean)visit(ctx.exp) && !broken) {
+            visit(ctx.block);
+        }
+
+        broken = false;
+        return null;
+    }
+
+    @Override public Object visitForStatement(gParser.ForStatementContext ctx) {
+        String varname = ctx.var.getText();
+        Integer begin = (Integer)visit(ctx.begin);
+        Integer end = (Integer)visit(ctx.end);
+
+        variables.put(varname, begin);
+
+        while((Integer)variables.get(varname) < end && !broken) {
+            visit(ctx.block);
+            Integer temp = (Integer)variables.get(varname);
+            variables.put(varname, temp+1);
+        }
+        broken = false;
+
         return null;
     }
 
@@ -46,10 +74,15 @@ public class MyVisitor extends gBaseVisitor<Object> {
         return variables.get(ctx.var.getText());
     }
 
-    @Override public Object visitPrintExpr(gParser.PrintExprContext ctx) {
+    @Override public Object visitPrintStatement(gParser.PrintStatementContext ctx) {
         Object exp = visit(ctx.exp);
         System.out.println(exp);
 
+        return null;
+    }
+
+    @Override public Object visitBreakExpr(gParser.BreakExprContext ctx) {
+        broken = true;
         return null;
     }
 }

@@ -30,19 +30,39 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExprStatement(gParser.ExprStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code printExpr}
+	 * Visit a parse tree produced by the {@code printStatement}
 	 * labeled alternative in {@link gParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrintExpr(gParser.PrintExprContext ctx);
+	T visitPrintStatement(gParser.PrintStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code commentExpr}
+	 * Visit a parse tree produced by the {@code whileStatement}
 	 * labeled alternative in {@link gParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCommentExpr(gParser.CommentExprContext ctx);
+	T visitWhileStatement(gParser.WhileStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code forStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForStatement(gParser.ForStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code commentStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCommentStatement(gParser.CommentStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link gParser#statement_block}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatement_block(gParser.Statement_blockContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code atomStringExpr}
 	 * labeled alternative in {@link gParser#expr}.
@@ -92,4 +112,11 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAtomVarExpr(gParser.AtomVarExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code breakExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBreakExpr(gParser.BreakExprContext ctx);
 }
