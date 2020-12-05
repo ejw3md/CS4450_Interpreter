@@ -1,4 +1,4 @@
-// Generated from C:/Users/ewood/school/PoPL/CS4450_Interpreter\g.g4 by ANTLR 4.9
+// Generated from /Users/mikeweiss/IdeaProjects/testForAntlrAgain/src/g.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -119,4 +119,11 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBreakExpr(gParser.BreakExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code conditionalExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConditionalExpr(gParser.ConditionalExprContext ctx);
 }

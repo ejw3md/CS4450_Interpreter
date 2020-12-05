@@ -1,4 +1,4 @@
-// Generated from C:/Users/ewood/school/PoPL/CS4450_Interpreter\g.g4 by ANTLR 4.9
+// Generated from /Users/mikeweiss/IdeaProjects/testForAntlrAgain/src/g.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -194,4 +194,16 @@ public interface gListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBreakExpr(gParser.BreakExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code conditionalExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionalExpr(gParser.ConditionalExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code conditionalExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionalExpr(gParser.ConditionalExprContext ctx);
 }

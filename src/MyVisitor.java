@@ -85,4 +85,55 @@ public class MyVisitor extends gBaseVisitor<Object> {
         broken = true;
         return null;
     }
+
+    @Override public Object visitConditionalExpr(gParser.ConditionalExprContext ctx) {
+        Number left = (Number) visit(ctx.left);
+        Number right = (Number) visit(ctx.right);
+        String cond = ctx.cndl.getText();
+
+        if(cond.equals("==")){
+            if(left == right){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals("!=")) {
+            if(left != right){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals("<")) {
+            if(left.doubleValue() < right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals("<=")) {
+            if(left.doubleValue() <= right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals(">")) {
+            if(left.doubleValue() > right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals(">=")) {
+            if(left.doubleValue() >= right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+
+        return null;
+    }
 }

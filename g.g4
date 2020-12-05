@@ -22,9 +22,10 @@ expr: atom=INT                                  #atomIntExpr
     | left=expr op=('*'|'/') right=expr         #opExpr //TODO
     | left=expr op=('+'|'-') right=expr         #opExpr //TODO
     | op=('+'|'-') exp=expr                     #unaryOpExpr //TODO
+    | left=expr cndl=CNDL right=expr            #conditionalExpr
     ;
 
-
+CNDL: '=='|'!='|'<'|'<='|'>'|'>='; // conditional operators
 INT: [0-9]+;
 FLOAT: ([0-9]*[.])?[0-9]+;
 STRING: '"' (~["\r\n] | '""')* '"' | '\'' (~['\r\n] | '""')* '\'';
