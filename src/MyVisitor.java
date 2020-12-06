@@ -4,7 +4,9 @@ public class MyVisitor extends gBaseVisitor<Object> {
     public static HashMap<String ,Object> variables = new HashMap<>();
     public static boolean broken = false;
 
-    @Override public Object visitStart(gParser.StartContext ctx) { return visitChildren(ctx); }
+    @Override public Object visitStart(gParser.StartContext ctx) {
+        return visitChildren(ctx);
+    }
 
     @Override public Object visitAssignmentStatement(gParser.AssignmentStatementContext ctx) {
         Object exp = visit(ctx.exp);
@@ -49,10 +51,6 @@ public class MyVisitor extends gBaseVisitor<Object> {
         return null;
     }
 
-    @Override public Object visitUnaryOpExpr(gParser.UnaryOpExprContext ctx) { return visitChildren(ctx); }
-
-    @Override public Object visitOpExpr(gParser.OpExprContext ctx) { return visitChildren(ctx); }
-
     @Override public Object visitAtomStringExpr(gParser.AtomStringExprContext ctx) {
         String with_quotes = ctx.atom.getText();
         return with_quotes.substring(1, with_quotes.length()-1);
@@ -83,6 +81,107 @@ public class MyVisitor extends gBaseVisitor<Object> {
 
     @Override public Object visitBreakExpr(gParser.BreakExprContext ctx) {
         broken = true;
+        return null;
+    }
+
+    @Override public Object visitConditionalExpr(gParser.ConditionalExprContext ctx) {
+        Number left = (Number) visit(ctx.left);
+        Number right = (Number) visit(ctx.right);
+        String cond = ctx.cndl.getText();
+
+        if(cond.equals("==")){
+            if(left.doubleValue() == right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals("!=")) {
+            if(left.doubleValue() != right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals("<")) {
+            if(left.doubleValue() < right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals("<=")) {
+            if(left.doubleValue() <= right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals(">")) {
+            if(left.doubleValue() > right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+        if(cond.equals(">=")) {
+            if(left.doubleValue() >= right.doubleValue()){
+                return Boolean.TRUE;
+            }
+            else
+                return Boolean.FALSE;
+        }
+
+        return null;
+    }
+
+    @Override public Object visitArithmeticExpr(gParser.ArithmeticExprContext ctx) {
+        Number left = (Number)visit(ctx.l);
+        Number right = (Number)visit(ctx.r);
+        String arth = ctx.arth.getText();
+
+        if(arth.equals("+")) {
+            return left.doubleValue() + right.doubleValue();
+        }
+
+        if(arth.equals("-")) {
+            return left.doubleValue() - right.doubleValue();
+        }
+
+        if(arth.equals("*")) {
+            return left.doubleValue() * right.doubleValue();
+        }
+
+        if(arth.equals("/")) {
+            if(right.intValue() == 0){
+                return "Undefined";
+            } else {
+                return left.doubleValue() / right.doubleValue();
+            }
+        }
+
+        if(arth.equals("%")) {
+            if(right.intValue() == 0){
+                return "Undefined";
+            } else {
+                return left.doubleValue() % right.doubleValue();
+            }
+        }
+
+        if(arth.equals("^")) {
+            double value = left.doubleValue();
+            double temp = left.doubleValue();
+
+            if(right.intValue() == 0){
+                return (double)1;
+            } else {
+                for (int i = 1; i < (Integer) right; i++) {
+                    value *= temp;
+                }
+                return value;
+            }
+        }
+
         return null;
     }
 }

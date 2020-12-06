@@ -1,4 +1,4 @@
-// Generated from C:/Users/ewood/school/PoPL/CS4450_Interpreter\g.g4 by ANTLR 4.9
+// Generated from /Users/griffin/IdeaProjects/Interpreter2/g.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -111,30 +111,6 @@ public interface gListener extends ParseTreeListener {
 	 */
 	void exitAtomStringExpr(gParser.AtomStringExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code unaryOpExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterUnaryOpExpr(gParser.UnaryOpExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code unaryOpExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitUnaryOpExpr(gParser.UnaryOpExprContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code opExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterOpExpr(gParser.OpExprContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code opExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitOpExpr(gParser.OpExprContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code atomFloatExpr}
 	 * labeled alternative in {@link gParser#expr}.
 	 * @param ctx the parse tree
@@ -183,6 +159,18 @@ public interface gListener extends ParseTreeListener {
 	 */
 	void exitAtomVarExpr(gParser.AtomVarExprContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code arithmeticExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithmeticExpr(gParser.ArithmeticExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code arithmeticExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmeticExpr(gParser.ArithmeticExprContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code breakExpr}
 	 * labeled alternative in {@link gParser#expr}.
 	 * @param ctx the parse tree
@@ -194,4 +182,16 @@ public interface gListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBreakExpr(gParser.BreakExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code conditionalExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterConditionalExpr(gParser.ConditionalExprContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code conditionalExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitConditionalExpr(gParser.ConditionalExprContext ctx);
 }

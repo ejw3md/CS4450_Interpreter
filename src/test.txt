@@ -1,16 +1,10 @@
-a = 5
-b = 12.01
-c = "lasdjfljsdkf"
+print(4 + 3)
+print(4 - 3)
+print(4 * 3)
+print(30 / 0)
+print(5 % 0)
+print(5 ^ 0)
 
-#do comments work?
-# hopefully
+k = 4 + 10
+print(k)
 
-for i in range(1, 10):
-    print("HELLO")
-    for j in range(10, 20):
-        print(j)
-
-
-print(a)
-print(b)
-print(c)
