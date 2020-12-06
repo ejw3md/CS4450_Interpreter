@@ -1,4 +1,4 @@
-// Generated from C:/Users/ewood/school/PoPL/CS4450_Interpreter\g.g4 by ANTLR 4.9
+// Generated from /Users/griffin/IdeaProjects/Interpreter2/g.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -15,13 +15,6 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitStart(gParser.StartContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code assignmentStatement}
-	 * labeled alternative in {@link gParser#statement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAssignmentStatement(gParser.AssignmentStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code exprStatement}
 	 * labeled alternative in {@link gParser#statement}.
@@ -58,6 +51,20 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCommentStatement(gParser.CommentStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code assignmentStatements}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignmentStatements(gParser.AssignmentStatementsContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code assignmentStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignmentStatement(gParser.AssignmentStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link gParser#statement_block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -70,20 +77,6 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAtomStringExpr(gParser.AtomStringExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code unaryOpExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitUnaryOpExpr(gParser.UnaryOpExprContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code opExpr}
-	 * labeled alternative in {@link gParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOpExpr(gParser.OpExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code atomFloatExpr}
 	 * labeled alternative in {@link gParser#expr}.
@@ -113,10 +106,24 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAtomVarExpr(gParser.AtomVarExprContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code arithmeticExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArithmeticExpr(gParser.ArithmeticExprContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code breakExpr}
 	 * labeled alternative in {@link gParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitBreakExpr(gParser.BreakExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code conditionalExpr}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConditionalExpr(gParser.ConditionalExprContext ctx);
 }

@@ -2,12 +2,13 @@ grammar g;
 
 start: (statement EOL*)*;
 
-statement:  var=VARIABLE '=' exp=expr           #assignmentStatement
-         |  exp=expr                            #exprStatement
+statement: exp=expr                             #exprStatement
          | 'print(' exp=expr ')'                #printStatement
-         | 'while ' exp=expr ':' EOL block=statement_block     #whileStatement
+         | 'while ' exp=expr ':' EOL block=statement_block      #whileStatement
          | 'for ' var=VARIABLE ' in range(' begin=expr ',' end=expr ')' ':' EOL block=statement_block #forStatement
          | COMMENT                              #commentStatement
+         | var=VARIABLE asgn=ASSIGNMENT exp=expr                #assignmentStatements
+         | var=VARIABLE '=' exp=expr            #assignmentStatement
          ;
 
 // kinda jank. Will (probably) work for test file
@@ -19,16 +20,17 @@ expr: atom=INT                                  #atomIntExpr
     | var=VARIABLE                              #atomVarExpr
     | 'break'                                   #breakExpr
     | '(' exp=expr ')'                          #parnExpr
-    | left=expr op=('*'|'/') right=expr         #opExpr //TODO
-    | left=expr op=('+'|'-') right=expr         #opExpr //TODO
-    | op=('+'|'-') exp=expr                     #unaryOpExpr //TODO
+    | left=expr cndl=CNDL right=expr            #conditionalExpr
+    | l=expr arth=ARTH r=expr                   #arithmeticExpr
     ;
 
-
-INT: [0-9]+;
-FLOAT: ([0-9]*[.])?[0-9]+;
+ARTH: '+'|'-'|'*'|'/'|'%'|'^'; // arithmetic operators
+CNDL: '=='|'!='|'<'|'<='|'>'|'>='; // conditional operators
+INT: '-'?[0-9]+;
+FLOAT: '-'?([0-9]*[.])?[0-9]+;
 STRING: '"' (~["\r\n] | '""')* '"' | '\'' (~['\r\n] | '""')* '\'';
 COMMENT: '#'(~[\r\n])*;
 VARIABLE: [a-zA-Z][a-zA-Z0-9]*;
 WS: [ \t]+ -> skip;
 EOL: '\n' | '\r\n' | '\r';
+ASSIGNMENT: '+='|'-='|'*='|'/='|'^='|'%=';
