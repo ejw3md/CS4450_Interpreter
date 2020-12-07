@@ -28,12 +28,12 @@ public class MyVisitor extends gBaseVisitor<Object> {
 
     @Override public Object visitForStatement(gParser.ForStatementContext ctx) {
         String varname = ctx.var.getText();
-        Integer begin = (Integer)visit(ctx.begin);
-        Integer end = (Integer)visit(ctx.end);
+        Number begin = (Number)visit(ctx.begin);
+        Number end = (Number)visit(ctx.end);
 
         variables.put(varname, begin);
 
-        while((Integer)variables.get(varname) < end && !broken) {
+        while(((Number)variables.get(varname)).intValue() < end.intValue() && !broken) {
             visit(ctx.block);
             Integer temp = (Integer)variables.get(varname);
             variables.put(varname, temp+1);
