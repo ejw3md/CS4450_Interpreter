@@ -7,6 +7,7 @@ statement:  var=VARIABLE '=' exp=expr           #assignmentStatement
          | 'print(' exp=expr ')'                #printStatement
          | 'while ' exp=expr ':' EOL block=statement_block     #whileStatement
          | 'for ' var=VARIABLE ' in range(' begin=expr ',' end=expr ')' ':' EOL block=statement_block #forStatement
+         | 'if ' exp = expr ':' EOL block=statement_block 'else:' EOL block2=statement_block #ifStatement
          | COMMENT                              #commentStatement
          ;
 
@@ -22,6 +23,9 @@ expr: atom=INT                                  #atomIntExpr
     | left=expr op=('*'|'/') right=expr         #opExpr //TODO
     | left=expr op=('+'|'-') right=expr         #opExpr //TODO
     | op=('+'|'-') exp=expr                     #unaryOpExpr //TODO
+    | 'str(' exp=expr ')'                       #toString
+    | 'int('exp=expr')'                         #toInt
+
     ;
 
 
