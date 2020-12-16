@@ -1,4 +1,4 @@
-// Generated from /Users/mikeweiss/IdeaProjects/testForAntlrAgain/src/g.g4 by ANTLR 4.9
+// Generated from C:/Users/ewood/school/PoPL/CS4450_Interpreter\g.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -44,6 +44,13 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitForStatement(gParser.ForStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code ifStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfStatement(gParser.IfStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code commentStatement}
 	 * labeled alternative in {@link gParser#statement}.
 	 * @param ctx the parse tree
@@ -78,6 +85,13 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAtomStringExpr(gParser.AtomStringExprContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code toInt}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitToInt(gParser.ToIntContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code atomFloatExpr}
 	 * labeled alternative in {@link gParser#expr}.
 	 * @param ctx the parse tree
@@ -98,6 +112,13 @@ public interface gVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAtomIntExpr(gParser.AtomIntExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code toString}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitToString(gParser.ToStringContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code atomVarExpr}
 	 * labeled alternative in {@link gParser#expr}.

@@ -29,3 +29,7 @@ print(i)
 eq1 = 2 * -5 + 20
 print(eq1)
 print("hello " + "test")
+if 1 == 10:
+    print("Hello")
+else:
+    print("GOODBYE")

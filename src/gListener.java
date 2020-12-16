@@ -1,4 +1,4 @@
-// Generated from /Users/mikeweiss/IdeaProjects/testForAntlrAgain/src/g.g4 by ANTLR 4.9
+// Generated from C:/Users/ewood/school/PoPL/CS4450_Interpreter\g.g4 by ANTLR 4.9
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -65,6 +65,18 @@ public interface gListener extends ParseTreeListener {
 	 */
 	void exitForStatement(gParser.ForStatementContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code ifStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfStatement(gParser.IfStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ifStatement}
+	 * labeled alternative in {@link gParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfStatement(gParser.IfStatementContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code commentStatement}
 	 * labeled alternative in {@link gParser#statement}.
 	 * @param ctx the parse tree
@@ -123,6 +135,18 @@ public interface gListener extends ParseTreeListener {
 	 */
 	void exitAtomStringExpr(gParser.AtomStringExprContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code toInt}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterToInt(gParser.ToIntContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code toInt}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitToInt(gParser.ToIntContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code atomFloatExpr}
 	 * labeled alternative in {@link gParser#expr}.
 	 * @param ctx the parse tree
@@ -158,6 +182,18 @@ public interface gListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAtomIntExpr(gParser.AtomIntExprContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code toString}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterToString(gParser.ToStringContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code toString}
+	 * labeled alternative in {@link gParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitToString(gParser.ToStringContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code atomVarExpr}
 	 * labeled alternative in {@link gParser#expr}.

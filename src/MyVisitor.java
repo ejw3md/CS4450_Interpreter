@@ -272,4 +272,24 @@ public class MyVisitor extends gBaseVisitor<Object> {
         return Boolean.FALSE;
     }
 
+    @Override public  Object visitToString(gParser.ToStringContext ctx){
+        Object exp = visit(ctx.exp);
+        return exp.toString();
+    }
+
+    @Override public Object visitToInt(gParser.ToIntContext ctx){
+        Float exp = (Float)visit(ctx.exp);
+        return exp.intValue();
+    }
+    @Override public Object visitIfStatement(gParser.IfStatementContext ctx){
+        boolean value = (boolean)visit(ctx.expr());
+
+        if(value) {
+            visit(ctx.statement_block(0));
+        }
+        else {
+            visit(ctx.statement_block(1));
+        }
+        return null;
+    }
 }
