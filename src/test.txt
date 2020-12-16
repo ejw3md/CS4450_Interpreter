@@ -16,12 +16,16 @@ print(b)
 print(c)
 
 i = 0
+y = 5
 print(i)
 print(-3.5 < 1.7)
 print(4 >= 4.0)
 print(i == 0 and 0.0 == 0)
-while i <= 6:
+while i <= 6 and y <= 15 and 0 == 0 and 1 != 0:
     print(i)
-    i += 1
+    i = i + 1
 
 print(i)
+eq1 = 2 * -5 + 20
+print(eq1)
+print("hello " + "test")

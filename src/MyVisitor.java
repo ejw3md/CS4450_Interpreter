@@ -129,6 +129,12 @@ public class MyVisitor extends gBaseVisitor<Object> {
     }
 
     @Override public Object visitArithmeticExpr(gParser.ArithmeticExprContext ctx) {
+        if(visit(ctx.l) instanceof java.lang.String && visit(ctx.r) instanceof java.lang.String){
+            // if they are strings instead of
+            String left = (String) visit(ctx.l);
+            String right = (String) visit(ctx.r);
+            return left + right;
+        }
         Number left = (Number)visit(ctx.l);
         Number right = (Number)visit(ctx.r);
         String arth = ctx.arth.getText();
@@ -265,4 +271,5 @@ public class MyVisitor extends gBaseVisitor<Object> {
 
         return Boolean.FALSE;
     }
+
 }
