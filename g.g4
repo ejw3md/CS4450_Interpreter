@@ -44,8 +44,10 @@ tokens {INDENT, DEDENT}
             pendingTokens.add(next);
             return pendingTokens.poll();
         }
-        if(next.getText().length() != expected_tabs.length()) {
-            int loop = (expected_tabs.length() - next.getText().length()) / 4;
+
+        String spaces = next.getText().replace("\t", "    ");
+        if(spaces.length() != expected_tabs.length()) {
+            int loop = (expected_tabs.length() - spaces.length()) / 4;
             for(int i=0; i<loop; i++) {
                 cur_tabs--;
                 pendingTokens.add(new CommonToken(gParser.DEDENT));
@@ -91,7 +93,7 @@ FLOAT: '-'?([0-9]*[.])?[0-9]+;
 STRING: '"' (~["\r\n] | '""')* '"' | '\'' (~['\r\n] | '""')* '\'';
 COMMENT: '#'(~[\r\n])*;
 VARIABLE: [a-zA-Z_][a-zA-Z0-9_]*;
-TABS: '    '+;
+TABS: ('    '|'\t')+;
 COLON: ':';
 EOL: '\n' | '\r\n' | '\r';
 WS: [ \t]+ -> skip;
