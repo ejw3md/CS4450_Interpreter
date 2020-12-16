@@ -16,11 +16,12 @@ print(b)
 print(c)
 
 i = 0
-print(i == 0)
+print(i)
 print(-3.5 < 1.7)
-print(3 > 3.0001)
-while i < 6:
+print(4 >= 4.0)
+print(i == 0 and 0.0 == 0)
+while i <= 6:
     print(i)
-    i = 6
+    i += 1
 
 print(i)
