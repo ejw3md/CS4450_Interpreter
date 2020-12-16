@@ -90,7 +90,7 @@ INT: '-'?[0-9]+;
 FLOAT: '-'?([0-9]*[.])?[0-9]+;
 STRING: '"' (~["\r\n] | '""')* '"' | '\'' (~['\r\n] | '""')* '\'';
 COMMENT: '#'(~[\r\n])*;
-VARIABLE: [a-zA-Z][a-zA-Z0-9]*;
+VARIABLE: [a-zA-Z_][a-zA-Z0-9_]*;
 TABS: '    '+;
 COLON: ':';
 EOL: '\n' | '\r\n' | '\r';
