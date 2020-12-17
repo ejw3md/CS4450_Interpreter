@@ -9,7 +9,7 @@ import static org.antlr.v4.runtime.CharStreams.fromFileName;
 public class Launch {
     public static void main(String[] args) {
         try {
-            String source = "src/test.txt";
+            String source = "src/python_test_code.py";
             CharStream cs = fromFileName(source);
             gLexer lexer = new gLexer(cs);
             CommonTokenStream token = new CommonTokenStream(lexer);
