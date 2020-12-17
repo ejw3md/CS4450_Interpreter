@@ -135,8 +135,6 @@ public class MyVisitor extends gBaseVisitor<Object> {
             String right = (String) visit(ctx.r);
             return left + right;
         }
-//        System.out.println(visit(ctx.l));
-//        System.out.println(visit(ctx.r));
 
         Number left = (Number)visit(ctx.l);
         Number right = (Number)visit(ctx.r);
@@ -277,6 +275,12 @@ public class MyVisitor extends gBaseVisitor<Object> {
 
     @Override public  Object visitToString(gParser.ToStringContext ctx){
         Object exp = visit(ctx.exp);
+        if(exp instanceof Number) {
+            Number temp = (Number)exp;
+            if(temp.doubleValue() == (int)temp.doubleValue()) {
+                exp = (int)temp.doubleValue();
+            }
+        }
         return exp.toString();
     }
 
