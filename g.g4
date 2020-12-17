@@ -65,7 +65,7 @@ statement: exp=expr                             #exprStatement
          | 'print(' exp=expr ')'                #printStatement
          | 'while' exp=expr COLON EOL block=statement_block     #whileStatement
          | 'for' var=VARIABLE ' in range(' begin=expr ',' end=expr ')' COLON EOL block=statement_block #forStatement
-         | 'if ' exp = expr ':' EOL block=statement_block 'else:' EOL block2=statement_block #ifStatement
+         | 'if' if_exp=expr COLON EOL if_block=statement_block ('elif' elif_exp=expr COLON EOL elif_block=statement_block)* ('else' COLON EOL else_block=statement_block)? #ifStatement
          | COMMENT                              #commentStatement
          | var=VARIABLE asgn=ASSIGNMENT exp=expr                #assignmentStatements
          | var=VARIABLE '=' exp=expr            #assignmentStatement
@@ -79,8 +79,8 @@ expr: atom=INT                                  #atomIntExpr
     | var=VARIABLE                              #atomVarExpr
     | 'break'                                   #breakExpr
     | '(' exp=expr ')'                          #parnExpr
-    | left=expr cndl=CNDL right=expr            #conditionalExpr
     | l=expr arth=ARTH r=expr                   #arithmeticExpr
+    | left=expr cndl=CNDL right=expr            #conditionalExpr
     | left=expr 'and' right=expr                #andExpr
     | 'str(' exp=expr ')'                       #toString
     | 'int('exp=expr')'                         #toInt

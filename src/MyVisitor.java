@@ -135,6 +135,9 @@ public class MyVisitor extends gBaseVisitor<Object> {
             String right = (String) visit(ctx.r);
             return left + right;
         }
+//        System.out.println(visit(ctx.l));
+//        System.out.println(visit(ctx.r));
+
         Number left = (Number)visit(ctx.l);
         Number right = (Number)visit(ctx.r);
         String arth = ctx.arth.getText();
@@ -278,17 +281,25 @@ public class MyVisitor extends gBaseVisitor<Object> {
     }
 
     @Override public Object visitToInt(gParser.ToIntContext ctx){
-        Float exp = (Float)visit(ctx.exp);
+        Number exp = (Number)visit(ctx.exp);
         return exp.intValue();
     }
     @Override public Object visitIfStatement(gParser.IfStatementContext ctx){
-        boolean value = (boolean)visit(ctx.expr());
+        boolean value = (boolean)visit(ctx.if_exp);
 
         if(value) {
-            visit(ctx.statement_block(0));
+            visit(ctx.if_block);
+        }
+        else if(ctx.elif_exp != null) {
+            value = (boolean)visit(ctx.if_exp);
+            if(value) {
+                visit(ctx.elif_block);
+            }
         }
         else {
-            visit(ctx.statement_block(1));
+            if(ctx.else_block != null) {
+                visit(ctx.else_block);
+            }
         }
         return null;
     }
