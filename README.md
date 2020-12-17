@@ -3,9 +3,21 @@ CS4450 Python Interpreter Final Project
 
 ### Project Explanation
 
+We created a Python interpreter using Java and ANTLR. From ANTLR's website, "ANTLR (ANother Tool for Language Recognition) is a powerful parser generator for reading, processing, executing, or translating structured text or binary files. It's widely used to build languages, tools, and frameworks. From a grammar, ANTLR generates a parser that can build and walk parse trees."
+
 ### Group Members
 
+- Ethan Woodrum
+- Mike Weiss
+- Sarah Brooks
+- Griffin Schulte
+
 ### Interpreter Requirements
+
+1. IntelliJ
+2. ANTLR
+
+See "How to Use/Run" section for setup of requirement.
 
 ### How to Use/Run
 **Initial Setup**
