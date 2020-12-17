@@ -49,4 +49,4 @@ See "How to Use/Run" section for setup of requirement.
 1. The Python test code will already be input but if changes need to be made, expand the src folder in IntelliJ, open the python_test_code.py file and make changes.
 2. Right click the g.g4 file, click "Generate ANTLR Recognizer"
 3. Run code by right clicking the "Launch" file, and clicking "Run 'Launch.main()'"
-4. If changes are made to the test Python code, simply make the changes, save the file, then repeat step 24.
+4. If changes are made to the test Python code, simply make the changes, save the file, then repeat the previous step.
