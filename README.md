@@ -17,7 +17,7 @@ We created a Python interpreter using Java and ANTLR. From ANTLR's website, "ANT
 1. IntelliJ
 2. ANTLR
 
-See "How to Use/Run" section for setup of requirement.
+See "How to Use/Run" section for setup of requirements.
 
 ### How to Use/Run
 **Initial Setup**
